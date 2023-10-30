@@ -1,78 +1,61 @@
 //TODO - Your ES6 JavaScript code (if any) goes here
 import "bootstrap"
-const x = Number(prompt("Enter a number"))
-console.log('x: ' + x)
-const y = Number(prompt("Enter a number"))
-console.log('y: ' + y)
-const z = Number(prompt("Enter a number"))
-console.log('z: ' + z)
-console.log('max num: ' + Math.max(x, y, z))
-console.log('min num: ' +Math.min(x, y, z))
-const mean = ((x + y + z)/3)
-console.log('the mean is ' + mean)
 
-const word1 = prompt("Enter a word")
-const word2 = prompt("enter a second word")
-const str1 = word1.length
-const str2 = word2.length
-console.log(str1)
-console.log(str2)
-if (str1 > str2){
-    console.log("1")
-} else if (str1 < str2){
-    console.log("-1")
-} else {
-    console.log("0")
+function getMax(x, y, z) {
+    return Math.max(x, y, z)
 }
-
-function printCharacters(qoute){
-    let out =""
-for(let i = 0; i < qoute.length; i++){
-    out += qoute[i] + "\n"
+function getMin(x, y, z) {
+    return Math.min(x, y, z)
 }
-return out
+function getMean(x, y, z) {
+    let mean = (x + y + z) / 3
+    return mean
 }
-console.log(printCharacters("Hello World!"))
-//const qoute = "Hello World!"
-
-function something(qoute){
-    let indent =""
-for(let i = 0; i < qoute.length; i++){
-    indent += " " + qoute[i] + "\n"
+console.log(getMax(3, 2, 9))
+console.log(getMin(3, 2, 9))
+console.log(getMean(3, 2, 9))
+function compare(word1, word2) {
+    if (word1 > word2) {
+        return 1
+    } else if (word1 < word2) {
+        return -1
+    } else {
+        return 0
+    }
 }
-return indent
+console.log(compare("nitroglycern", "adrenaline"))
+function something(qoute, indent) {
+    let output = ""
+    for (let i = 0; i < qoute.length; i++) {
+        for (let j = 0; indent && j < i; j++) {
+            output += " "
+        }
+        output += qoute[i] + "\n"
+    }
+    return output
 }
 console.log(something("Hello World!", false))
-/*console.log("   " + "Chandelier")
-*/
+console.log(something("Hello World!", true))
+let out = ""
+//let j = 0
+function arrow(size) {
+    for (let i = 0; i < size / 2; i++) {
+        let j = 0
+        while (j <= i) {
+            out += "*"
+            j++
+        } out+= "\n"
+    }
 
-let arrowsize = Number(prompt("Input a number for the arrow size"))
-/*
-let result = ""
-for (let i = 0; i<=arrowsize; i++){
-    result += "*" + "\n"
-    /*while (i<=arrowsize){
-        result += " " + "\n"
+    for (let i = size / 2; i > 1; i--) {
+        let j = 0
+        while (j < i - 1) {
+            out += "*"
+            j++
+        } out+= "\n"
     }
-    }
-    console.log(result)
-    */
-for (let d = "*"; d.length <= arrowsize; d+= "*")
-console.log(d)
-let symbol = arrowsize * "*"
-for (let i = arrowsize; i >= arrowsize; i-= 1){
-    symbol -= "*"
+    return (out)
 }
-console.log(symbol)
-/*let arrow = ""
-for (let i = 0; i <= arrowsize; i++){
-    while (i <= arrowsize){
-        
-    }
-    //arrow += "*"+ "\n"
-}
-//return arrow
-//}
-console.log(arrow)*/
+console.log(arrow(9))
 
 
